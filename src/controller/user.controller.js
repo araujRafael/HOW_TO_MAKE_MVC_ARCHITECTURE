@@ -102,7 +102,7 @@ class UserController {
       return
     }
     if(userExist.password===password){
-      res.status(200).json({message:"Login succefuly"})
+      res.status(200).json({message:"Login successfully"})
       return
     }else{
       res.status(400).json({error: "Access denied"})
