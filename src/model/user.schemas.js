@@ -3,17 +3,20 @@ const { Schema } = mongoose;
 
 const UsersSchema = new Schema({
   uuid:{
-    type:String
+    type:String,
+    required:true,
   },
   name: {
     type:String,
-
+    required:true
   },
   email:{
-    type:String
+    type:String,
+    required:true
   },
   password:{
-    type:String
+    type:String,
+    required:true
   }
 },{
   timestamps:true,

@@ -10,7 +10,7 @@ const _PORT = process.env.PORT || 3000
 const CORS_PORT = process.env.CORS_PORT || "*"
 const corsOptions = {
   origin: CORS_PORT,
-  optionsSuccessStatus: 200 
+  optionsSuccessStatus: 200
 }
 // ************ MIDDLEWARE ****************
 server.use(helmet())
