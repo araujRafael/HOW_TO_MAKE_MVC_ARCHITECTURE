@@ -7,7 +7,7 @@ require('./model/db.connect')
 // ************ CONFIG ****************
 const server = express()
 const _PORT = process.env.PORT || 3000
-const CORS_PORT = process.env.CORS_PORT
+const CORS_PORT = process.env.CORS_PORT || "*"
 const corsOptions = {
   origin: CORS_PORT,
   optionsSuccessStatus: 200 
