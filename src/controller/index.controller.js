@@ -1,13 +1,14 @@
 const { Users } = require("../model/user.schemas");
 const { v4: uuid } = require("uuid");
 
+
 class IndexController {
   // GET
   async get(req, res) {
     const UserCollection = Users.db.collection("users");
     const usersArr = await UserCollection.find({}).toArray();
     if (!usersArr) {
-      res.status(500).json({
+      res.status(400).json({
         error: "No users yet!",
       });
       return;
@@ -17,9 +18,8 @@ class IndexController {
   async getId(req, res) {
     const { id } = req.params;
     const usersId = await Users.findOne({ uuid: id }).exec();
-    // console.log(usersId)
     if (!usersId) {
-      res.status(500).json({
+      res.status(400).json({
         error: "User not found",
       });
       return;
@@ -30,7 +30,7 @@ class IndexController {
   post(req, res) {
     const { name, password, email } = req.body;
     if (!name || !password || !email) {
-      res.status(500).json({
+      res.status(400).json({
         error: "Empety filds!",
       });
       return;
