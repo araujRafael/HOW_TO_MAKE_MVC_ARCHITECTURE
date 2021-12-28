@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "nodemon src/app.js",
     "build": "",
-    "start": ""
+    "start": "nodem src/app.js"
   },
   "dependencies": {
     "consign": "^0.1.6",
