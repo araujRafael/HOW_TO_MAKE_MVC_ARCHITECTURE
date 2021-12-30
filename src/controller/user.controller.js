@@ -47,7 +47,7 @@ class UserController {
   // PUT
   async editPass(req, res) {
     const { uuid } = req.headers;
-    const { password } = req.body;
+    const newPassword = req.body.password;
     const usersId = await Users.findOne({ uuid }).exec();
     if (!usersId) {
       res.status(400).json({
@@ -55,15 +55,15 @@ class UserController {
       });
       return;
     }
-    if (!password) {
+    if (!newPassword) {
       res.status(400).json({
         error: "Empety fild!",
       });
       return;
     }
     try {
-      const updatePass = { password };
-      await Users.findOneAndUpdate(uuid, updatePass);
+      const updatePass = { password:newPassword };
+      await Users.findOneAndUpdate({uuid}, updatePass).exec();
       res.status(200).json({
         message: "Your password has been successfully edited",
       });
